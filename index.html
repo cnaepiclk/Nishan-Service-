@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishan Service | Chamath Nishan Anurudda</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-bg: #0f1028;
+            --secondary-bg: #2a2d6e;
+            --card-bg: rgba(30, 32, 75, 0.75);
+            --text-light: #ffffff;
+            --text-medium: #cfcfcf;
+            --accent-green: #25d366;
+            --border-color: rgba(255, 255, 255, 0.15);
+            --hover-bg: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(160deg, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+            background-attachment: fixed;
+            color: var(--text-light);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header Logos */
+        .top-logo-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.2rem;
+            padding-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .top-logo-header img {
+            height: 40px;
+            width: auto;
+            opacity: 0.9;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        /* Main Card */
+        .main-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 1.5rem;
+            padding: 2rem 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        
+        /* Profile Section */
+        .profile-header {
+            text-align: center;
+        }
+
+        .profile-pic-wrapper {
+            position: relative;
+            width: 115px;
+            height: 115px;
+            margin: 0 auto 1rem auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-pic {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            z-index: 2;
+            border: 3px solid rgba(255,255,255,0.1);
+        }
+        
+        .profile-pic img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Title Area */
+        .profile-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .verify-badge {
+            width: 22px;
+            height: 22px;
+            object-fit: contain;
+        }
+
+        .profile-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        /* Review Buttons */
+        .profile-links {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin: 1rem 0;
+        }
+        
+        .btn-small {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 0.4rem 1rem;
+            text-decoration: none;
+            color: var(--text-medium);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: 0.3s;
+        }
+
+        .btn-small:hover {
+            background: var(--hover-bg);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 0.5rem 0;
+        }
+        
+        /* Contact Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+        
+        .btn-contact {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 0.85rem;
+            border-radius: 0.8rem;
+            text-decoration: none;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-contact:hover {
+            background: var(--hover-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-contact i {
+            font-size: 1.3rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Full Width Buttons */
+        .btn-full {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 0.8rem;
+            text-decoration: none;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .btn-full:hover {
+            background: var(--hover-bg);
+            transform: translateY(-2px);
+        }
+
+        /* Promo Section */
+        .info-text {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+            padding: 0 0.5rem;
+        }
+
+        /* Promo Code Box */
+        .promo-box {
+            background: linear-gradient(90deg, rgba(43, 88, 209, 0.2), rgba(43, 88, 209, 0.4));
+            border: 1px solid rgba(43, 88, 209, 0.5);
+            border-radius: 0.8rem;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .promo-box:hover {
+            background: linear-gradient(90deg, rgba(43, 88, 209, 0.3), rgba(43, 88, 209, 0.5));
+        }
+
+        .promo-box:active {
+            transform: scale(0.97);
+        }
+
+        .promo-code {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-medium);
+        }
+
+        .promo-code span span {
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .promo-box .copy-icon {
+            font-size: 1.1rem;
+            color: var(--text-medium);
+        }
+
+        /* Toast Notification */
+        #toast {
+            visibility: hidden;
+            min-width: 200px;
+            background-color: #202124;
+            color: #fff;
+            text-align: center;
+            border-radius: 50px;
+            padding: 12px;
+            position: fixed;
+            z-index: 2000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        #toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-medium);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+            margin-top: 1rem;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1.5px;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            background: rgba(0,0,0,0.2);
+            padding: 1rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+        }
+
+        .footer-info p {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.6rem;
+        }
+
+        /* ============================
+           BANK MODAL STYLES
+           ============================ */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            width: 100%;
+            max-width: 400px;
+            /* Blue Gradient Background maintained */
+            background: linear-gradient(145deg, #2a2d6e, #121432);
+            border-radius: 1.5rem;
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 0.8rem;
+        }
+
+        .modal-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #aaa;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 0.5rem;
+            transition: 0.2s;
+        }
+
+        .close-btn:hover {
+            color: #fff;
+        }
+        
+        .bank-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Bank Item Styles - Reverted to Standard */
+        .bank-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .bank-top {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .bank-logo {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            padding: 4px;
+        }
+
+        .bank-name-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+
+        /* Account Number Box - Reverted to Standard */
+        .acc-details-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.8rem;
+            border-radius: 0.6rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .acc-number {
+            font-family: 'Poppins', monospace;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-green);
+            letter-spacing: 1px;
+        }
+
+        .btn-copy-bank {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+
+        .btn-copy-bank:hover {
+            background: var(--accent-green);
+            color: #000;
+        }
+        
+        /* Extra Details (Name and Branch) */
+        .bank-extra-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+            padding-left: 0.4rem;
+        }
+
+        .detail-row {
+            font-size: 0.85rem;
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .detail-row i {
+            width: 16px;
+            text-align: center;
+            color: var(--text-medium);
+        }
+        
+        .detail-row span {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Platform Logos -->
+        <header class="top-logo-header">
+            <img src="https://i.postimg.cc/s1FLMBv0/1001086974.png" alt="888starz">
+            <img src="https://i.postimg.cc/pXJNmZJw/1001086972.png" alt="1xBet">
+            <img src="https://i.postimg.cc/TYR74Xn7/1001086979.png" alt="PariPulse">
+            <img src="https://i.postimg.cc/wBtbQcLk/1001086973.png" alt="Melbet">
+        </header>
+
+        <main class="main-card">
+            
+            <!-- Profile Header -->
+            <section class="profile-header">
+                <div class="profile-pic-wrapper">
+                    <div class="profile-pic">
+                        <img src="https://i.postimg.cc/g2FqWTsv/1001086607.jpg" alt="Nishan Service">
+                    </div>
+                </div>
+                
+                <h1 class="profile-title">
+                    Nishan Service 
+                    <img src="https://i.postimg.cc/RVx9wTg2/1001086957.png" alt="Verified" class="verify-badge">
+                </h1>
+                
+                <p class="profile-subtitle">Chamath Nishan Anurudda</p>
+
+                <div class="profile-links">
+                    <a href="https://www.facebook.com/share/v/1KCX9ZKECp/" target="_blank" rel="noopener noreferrer" class="btn-small"><i class="fa-regular fa-comment-dots" style="color: #1877F2;"></i> Reviews</a>
+                    <a href="https://youtube.com/@agentnishan?si=yOSNRCnvsUK0oKwf" target="_blank" rel="noopener noreferrer" class="btn-small"><i class="fa-brands fa-youtube" style="color: #ff0000;"></i> YouTube</a>
+                </div>
+            </section>
+            
+            <hr>
+            
+            <!-- Contact Buttons -->
+            <section class="contact-grid">
+                <a href="https://wa.me/qr/RES23KVH34XOG1" target="_blank" rel="noopener noreferrer" class="btn-contact"><i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> WhatsApp</a>
+                <a href="https://t.me/nishanservice" target="_blank" rel="noopener noreferrer" class="btn-contact"><i class="fa-brands fa-telegram" style="color:#229ED9;"></i> Telegram</a>
+                <a href="tel:0781519931" class="btn-contact"><i class="fa-solid fa-phone" style="color:#34B7F1;"></i> Call</a>
+                <a href="mailto:nishanmessagepvt@gmail.com" class="btn-contact"><i class="fa-regular fa-envelope" style="color:#EA4335;"></i> Email</a>
+                
+                <!-- Bank Button - Reverted to Standard Style -->
+                <div onclick="openBankModal()" class="btn-contact"><i class="fa-solid fa-building-columns" style="color:#229ED9;"></i> Bank</div>
+                
+                <a href="https://www.facebook.com/share/17NsURB64p/" target="_blank" rel="noopener noreferrer" class="btn-contact"><i class="fa-brands fa-facebook" style="color:#1877F2;"></i> Facebook</a>
+            </section>
+            
+            <hr>
+
+            <!-- Promo Section -->
+            <section class="info-text">
+                <p>1xBet | Melbet | 888Starz | PariPulse සඳහා ඉක්මන් මුදල් තැන්පතු සහ ලබාගැනීම්.</p>
+                <p style="margin-top: 0.5rem; color: var(--text-light);">නව ගිණුමක් සාදන ඔබට මෙම ප්‍රමෝකෝඩ් එක භාවිතා කල හැක</p>
+            </section>
+
+            <!-- Promo Box -->
+            <div class="promo-box" onclick="copyToClipboard('VIPCNA', this)" >
+                <div class="promo-code">
+                    <i class="fa-solid fa-ticket"></i>
+                    <span>Promo Code : <span>VIPCNA</span></span>
+                </div>
+                <i class="fa-regular fa-copy copy-icon"></i>
+            </div>
+            
+            <!-- Registration Links -->
+            <section>
+                <h2 class="section-title"><i class="fa-solid fa-link"></i> Quick Registration</h2>
+                <div style="display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem;">
+                    <a href="https://reffpa.com/L?tag=d_4662170m_97c_&site=4662170&ad=97" target="_blank" rel="noopener noreferrer" class="btn-full"><i class="fa-solid fa-arrow-up-right-from-square"></i> Register 1xBet</a>
+                    <a href="https://reffpa.com/L?tag=d_4662170m_97c_&site=4662170&ad=97" target="_blank" rel="noopener noreferrer" class="btn-full"><i class="fa-solid fa-arrow-up-right-from-square"></i> Register 888Starz</a>
+                    <a href="https://reffpa.com/L?tag=d_4662170m_97c_&site=4662170&ad=97" target="_blank" rel="noopener noreferrer" class="btn-full"><i class="fa-solid fa-arrow-up-right-from-square"></i> Register Melbet</a>
+                    <a href="https://reffpa.com/L?tag=d_4662170m_97c_&site=4662170&ad=97" target="_blank" rel="noopener noreferrer" class="btn-full"><i class="fa-solid fa-arrow-up-right-from-square"></i> Register PariPulse</a>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <section class="footer-info">
+                <p><i class="fa-regular fa-circle-check" style="color: var(--accent-green);"></i> වේගවත් සහ ආරක්ෂිතයි.</p>
+                <p><i class="fa-regular fa-circle-check" style="color: var(--accent-green);"></i> 100% විශ්වාසයි.</p>
+                <p><i class="fa-solid fa-gift" style="color: #FFD700;"></i> පළමු තැන්පතුවට 2% Cash Back!</p>
+                <p style="font-weight: 600; color: var(--text-light); margin-top: 0.5rem;">අදම සම්බන්ධ වන්න.</p>
+            </section>
+        </main>
+    </div>
+    
+    <!-- BANK DETAILS POPUP MODAL -->
+    <div id="bankModal" class="modal-overlay" onclick="closeBankModal(event)">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title"><i class="fa-solid fa-wallet"></i> Bank Details</div>
+                <button class="close-btn" onclick="closeBankModalBtn()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="bank-list">
+                
+                <!-- 1. iPay -->
+                <div class="bank-item">
+                    <div class="bank-top">
+                        <img src="https://i.postimg.cc/KvW6PBbC/1001086753.png" alt="iPay" class="bank-logo">
+                        <span class="bank-name-title">iPay</span>
+                    </div>
+                    <div class="acc-details-box">
+                        <span class="acc-number">074 306 6234</span>
+                        <button class="btn-copy-bank" onclick="copyToClipboard('0743066234', this)"><i class="fa-regular fa-copy"></i></button>
+                    </div>
+                    <div class="bank-extra-details">
+                        <div class="detail-row"><i class="fa-regular fa-user"></i> Name: <span>Rathana BS</span></div>
+                    </div>
+                </div>
+
+                <!-- 2. BOC -->
+                <div class="bank-item">
+                    <div class="bank-top">
+                        <img src="https://i.postimg.cc/MTbwtT5R/1001086752.png" alt="BOC" class="bank-logo">
+                        <span class="bank-name-title">Bank of Ceylon</span>
+                    </div>
+                    <div class="acc-details-box">
+                        <span class="acc-number">0090575518</span>
+                        <button class="btn-copy-bank" onclick="copyToClipboard('0090575518', this)"><i class="fa-regular fa-copy"></i></button>
+                    </div>
+                    <div class="bank-extra-details">
+                        <div class="detail-row"><i class="fa-regular fa-user"></i> Name: <span>Rathana BS</span></div>
+                        <div class="detail-row"><i class="fa-solid fa-location-dot"></i> Branch: <span>Baduraliya</span></div>
+                    </div>
+                </div>
+
+                <!-- 3. People's Bank -->
+                <div class="bank-item">
+                    <div class="bank-top">
+                        <img src="https://i.postimg.cc/3J3NMMD3/1001086751.png" alt="Peoples Bank" class="bank-logo">
+                        <span class="bank-name-title">People's Bank</span>
+                    </div>
+                    <div class="acc-details-box">
+                        <span class="acc-number">070200120065175</span>
+                        <button class="btn-copy-bank" onclick="copyToClipboard('070200120065175', this)"><i class="fa-regular fa-copy"></i></button>
+                    </div>
+                    <div class="bank-extra-details">
+                        <div class="detail-row"><i class="fa-regular fa-user"></i> Name: <span>Rathana BS</span></div>
+                        <div class="detail-row"><i class="fa-solid fa-location-dot"></i> Branch: <span>Matugama</span></div>
+                    </div>
+                </div>
+
+                <!-- 4. LOLC Finance -->
+                <div class="bank-item">
+                    <div class="bank-top">
+                        <img src="https://i.postimg.cc/yYXBhWNb/1001098751.png" alt="LOLC" class="bank-logo">
+                        <span class="bank-name-title">LOLC Finance</span>
+                    </div>
+                    <div class="acc-details-box">
+                        <span class="acc-number">10310007330</span>
+                        <button class="btn-copy-bank" onclick="copyToClipboard('10310007330', this)"><i class="fa-regular fa-copy"></i></button>
+                    </div>
+                    <div class="bank-extra-details">
+                        <div class="detail-row"><i class="fa-regular fa-user"></i> Name: <span>Rathana BS</span></div>
+                        <div class="detail-row"><i class="fa-solid fa-location-dot"></i> Branch: <span>Baduraliya</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- END MODAL -->
+
+    <div id="toast">Copied to Clipboard!</div>
+
+    <script>
+        // Universal Copy Function
+        function copyToClipboard(text, element) {
+            let icon;
+            if(element.classList.contains('copy-icon')) {
+                icon = element;
+            } else if (element.querySelector('.copy-icon')) {
+                icon = element.querySelector('.copy-icon');
+            } else if (element.querySelector('i')) {
+                icon = element.querySelector('i');
+            } else {
+                icon = element;
+            }
+
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToastAndIcon(icon, text);
+                }).catch(err => {
+                    fallbackCopyTextToClipboard(text, icon);
+                });
+            } else {
+                fallbackCopyTextToClipboard(text, icon);
+            }
+        }
+
+        function fallbackCopyTextToClipboard(text, icon) {
+            var textArea = document.createElement("textarea");
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                showToastAndIcon(icon, text);
+            } catch (err) {
+                console.error('Fallback: Oops, unable to copy', err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        function showToastAndIcon(icon, text) {
+            const originalClass = icon.className;
+            
+            icon.className = "fa-solid fa-check";
+            icon.style.color = "#25d366";
+
+            const toast = document.getElementById("toast");
+            
+            if(text.length > 10) {
+                toast.textContent = "Account Number Copied!";
+            } else {
+                toast.textContent = '"' + text + '" Copied!';
+            }
+            
+            toast.className = "show";
+            
+            setTimeout(function(){ 
+                toast.className = toast.className.replace("show", ""); 
+                icon.className = originalClass;
+                icon.style.color = "";
+            }, 2000);
+        }
+
+        // Bank Modal Logic
+        function openBankModal() {
+            document.getElementById("bankModal").style.display = "flex";
+            document.body.style.overflow = "hidden"; 
+        }
+
+        function closeBankModalBtn() {
+            document.getElementById("bankModal").style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+
+        function closeBankModal(event) {
+            if (event.target.id === "bankModal") {
+                document.getElementById("bankModal").style.display = "none";
+                document.body.style.overflow = "auto";
+            }
+        }
+    </script>
+
+</body>
+</html>
