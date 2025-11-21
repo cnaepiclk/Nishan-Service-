@@ -3,7 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Social Sharing -->
     <title>Nishan Service | Chamath Nishan Anurudda</title>
+    <meta name="description" content="1xBet, Melbet, 888Starz & PariPulse Fast Deposits and Withdrawals Service.">
+    <meta property="og:title" content="Nishan Service - Fast & Trusted">
+    <meta property="og:image" content="https://i.postimg.cc/g2FqWTsv/1001086607.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/g2FqWTsv/1001086607.jpg">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,7 +28,7 @@
             --card-bg: rgba(30, 32, 75, 0.75);
             --text-light: #ffffff;
             --text-medium: #cfcfcf;
-            --accent-green: #25d366;
+            --accent-green: #00c853; 
             --border-color: rgba(255, 255, 255, 0.15);
             --hover-bg: rgba(255, 255, 255, 0.15);
         }
@@ -34,7 +42,7 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(160deg, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+            background: linear-gradient(160deg, #1a1c5a 0%, #090a1a 100%);
             background-attachment: fixed;
             color: var(--text-light);
             display: flex;
@@ -42,13 +50,68 @@
             align-items: center;
             padding: 1.5rem 1rem;
             min-height: 100vh;
+            overflow-x: hidden;
         }
+
+        /* =========================================
+           INTRO ANIMATION STYLES
+           ========================================= */
+        #intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(160deg, #1a1c5a 0%, #090a1a 100%); /* Same as body bg */
+            z-index: 9999; /* Always on top */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s ease-out; /* Smooth fade out */
+        }
+
+        #intro-logo {
+            width: 100px; /* Initial width */
+            opacity: 0;
+            animation: zoomLogo 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes zoomLogo {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.5); /* Grows 2.5 times bigger */
+                opacity: 1;
+            }
+        }
+
+        /* Class to hide intro */
+        .intro-hidden {
+            opacity: 0;
+            pointer-events: none; /* Allows clicking through after fade */
+        }
+
+        /* =========================================
+           MAIN APP STYLES
+           ========================================= */
 
         .container {
             width: 100%;
             max-width: 400px;
             position: relative;
             z-index: 1;
+            /* Initially hide main content slightly to make pop effect better */
+            animation: fadeInContent 1s ease 2.2s forwards;
+            opacity: 0; 
+        }
+
+        @keyframes fadeInContent {
+            to { opacity: 1; }
         }
 
         /* Header Logos */
@@ -111,7 +174,24 @@
             height: 100%;
             object-fit: cover;
         }
-        
+
+        .online-status-badge {
+            position: absolute;
+            bottom: 5px;
+            right: 5px; 
+            background-color: var(--accent-green);
+            color: #fff;
+            font-size: 0.55rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 50px;
+            border: 3px solid #26285a;
+            display: inline-block;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            z-index: 5;
+            letter-spacing: 0.5px;
+        }
+
         /* Title Area */
         .profile-title {
             font-size: 1.35rem;
@@ -178,7 +258,7 @@
             gap: 0.8rem;
         }
         
-        .btn-contact {
+        .btn-contact, button.btn-contact {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--border-color);
             padding: 0.85rem;
@@ -191,6 +271,9 @@
             gap: 0.75rem;
             transition: 0.3s;
             cursor: pointer;
+            width: 100%;
+            font-family: inherit;
+            text-align: left;
         }
 
         .btn-contact:hover {
@@ -347,7 +430,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(35, 40, 100, 0.85);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             z-index: 1000;
@@ -361,7 +444,6 @@
         .modal-content {
             width: 100%;
             max-width: 400px;
-            /* Blue Gradient Background maintained */
             background: linear-gradient(145deg, #2a2d6e, #121432);
             border-radius: 1.5rem;
             border: 1px solid var(--border-color);
@@ -410,7 +492,6 @@
             gap: 1rem;
         }
 
-        /* Bank Item Styles - Reverted to Standard */
         .bank-item {
             background: rgba(255, 255, 255, 0.05);
             padding: 1rem;
@@ -442,15 +523,15 @@
             color: #fff;
         }
 
-        /* Account Number Box - Reverted to Standard */
+        /* Account Number Box - Blue Background */
         .acc-details-box {
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(42, 45, 110, 0.6);
             padding: 0.8rem;
             border-radius: 0.6rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .acc-number {
@@ -461,6 +542,7 @@
             letter-spacing: 1px;
         }
 
+        /* Button Style */
         .btn-copy-bank {
             background: rgba(255,255,255,0.1);
             border: none;
@@ -476,15 +558,14 @@
         }
 
         .btn-copy-bank:hover {
-            background: var(--accent-green);
-            color: #000;
+            background: rgba(255,255,255,0.25);
         }
         
-        /* Extra Details (Name and Branch) */
+        /* Extra Details */
         .bank-extra-details {
             display: flex;
             flex-direction: column;
-            gap: 0.3rem;
+            gap: 0.5rem;
             padding-left: 0.4rem;
         }
 
@@ -494,6 +575,14 @@
             display: flex;
             align-items: center;
             gap: 0.6rem;
+            cursor: pointer;
+            padding: 4px 6px;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .detail-row:hover {
+            background: rgba(255,255,255,0.1);
         }
 
         .detail-row i {
@@ -505,6 +594,13 @@
         .detail-row span {
             color: #fff;
             font-weight: 500;
+            margin-right: auto;
+        }
+
+        .small-copy-icon {
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            opacity: 0.7;
         }
 
         @keyframes fadeIn {
@@ -515,6 +611,13 @@
     </style>
 </head>
 <body>
+
+    <!-- =========================================
+         INTRO SCREEN OVERLAY
+         ========================================= -->
+    <div id="intro-overlay">
+        <img src="https://i.postimg.cc/rpjK8hk3/1001100619.png" alt="Nishan Service Logo" id="intro-logo">
+    </div>
 
     <div class="container">
         
@@ -533,6 +636,11 @@
                 <div class="profile-pic-wrapper">
                     <div class="profile-pic">
                         <img src="https://i.postimg.cc/g2FqWTsv/1001086607.jpg" alt="Nishan Service">
+                    </div>
+                    
+                    <!-- Online Status Badge -->
+                    <div class="online-status-badge">
+                         Online
                     </div>
                 </div>
                 
@@ -558,8 +666,8 @@
                 <a href="tel:0781519931" class="btn-contact"><i class="fa-solid fa-phone" style="color:#34B7F1;"></i> Call</a>
                 <a href="mailto:nishanmessagepvt@gmail.com" class="btn-contact"><i class="fa-regular fa-envelope" style="color:#EA4335;"></i> Email</a>
                 
-                <!-- Bank Button - Reverted to Standard Style -->
-                <div onclick="openBankModal()" class="btn-contact"><i class="fa-solid fa-building-columns" style="color:#229ED9;"></i> Bank</div>
+                <!-- Bank Button -->
+                <button onclick="openBankModal()" class="btn-contact"><i class="fa-solid fa-building-columns" style="color:#229ED9;"></i> Bank</button>
                 
                 <a href="https://www.facebook.com/share/17NsURB64p/" target="_blank" rel="noopener noreferrer" class="btn-contact"><i class="fa-brands fa-facebook" style="color:#1877F2;"></i> Facebook</a>
             </section>
@@ -615,7 +723,7 @@
                 <!-- 1. iPay -->
                 <div class="bank-item">
                     <div class="bank-top">
-                        <img src="https://i.postimg.cc/KvW6PBbC/1001086753.png" alt="iPay" class="bank-logo">
+                        <img src="https://i.postimg.cc/cLBg6kmg/1001100468.jpg" alt="iPay" class="bank-logo">
                         <span class="bank-name-title">iPay</span>
                     </div>
                     <div class="acc-details-box">
@@ -623,14 +731,16 @@
                         <button class="btn-copy-bank" onclick="copyToClipboard('0743066234', this)"><i class="fa-regular fa-copy"></i></button>
                     </div>
                     <div class="bank-extra-details">
-                        <div class="detail-row"><i class="fa-regular fa-user"></i> Name: <span>Rathana BS</span></div>
+                        <div class="detail-row" onclick="copyToClipboard('Rathana BS', this)">
+                            <i class="fa-regular fa-user"></i> Name: <span>Rathana BS</span> <i class="fa-regular fa-copy small-copy-icon"></i>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 2. BOC -->
                 <div class="bank-item">
                     <div class="bank-top">
-                        <img src="https://i.postimg.cc/MTbwtT5R/1001086752.png" alt="BOC" class="bank-logo">
+                        <img src="https://i.postimg.cc/8zNs8BVh/1001100467.jpg" alt="BOC" class="bank-logo">
                         <span class="bank-name-title">Bank of Ceylon</span>
                     </div>
                     <div class="acc-details-box">
@@ -638,15 +748,19 @@
                         <button class="btn-copy-bank" onclick="copyToClipboard('0090575518', this)"><i class="fa-regular fa-copy"></i></button>
                     </div>
                     <div class="bank-extra-details">
-                        <div class="detail-row"><i class="fa-regular fa-user"></i> Name: <span>Rathana BS</span></div>
-                        <div class="detail-row"><i class="fa-solid fa-location-dot"></i> Branch: <span>Baduraliya</span></div>
+                        <div class="detail-row" onclick="copyToClipboard('Rathana BS', this)">
+                            <i class="fa-regular fa-user"></i> Name: <span>Rathana BS</span> <i class="fa-regular fa-copy small-copy-icon"></i>
+                        </div>
+                        <div class="detail-row" onclick="copyToClipboard('Baduraliya', this)">
+                            <i class="fa-solid fa-location-dot"></i> Branch: <span>Baduraliya</span> <i class="fa-regular fa-copy small-copy-icon"></i>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 3. People's Bank -->
                 <div class="bank-item">
                     <div class="bank-top">
-                        <img src="https://i.postimg.cc/3J3NMMD3/1001086751.png" alt="Peoples Bank" class="bank-logo">
+                        <img src="https://i.postimg.cc/nzyc3qkv/1001100473.jpg" alt="Peoples Bank" class="bank-logo">
                         <span class="bank-name-title">People's Bank</span>
                     </div>
                     <div class="acc-details-box">
@@ -654,15 +768,19 @@
                         <button class="btn-copy-bank" onclick="copyToClipboard('070200120065175', this)"><i class="fa-regular fa-copy"></i></button>
                     </div>
                     <div class="bank-extra-details">
-                        <div class="detail-row"><i class="fa-regular fa-user"></i> Name: <span>Rathana BS</span></div>
-                        <div class="detail-row"><i class="fa-solid fa-location-dot"></i> Branch: <span>Matugama</span></div>
+                        <div class="detail-row" onclick="copyToClipboard('Rathana BS', this)">
+                            <i class="fa-regular fa-user"></i> Name: <span>Rathana BS</span> <i class="fa-regular fa-copy small-copy-icon"></i>
+                        </div>
+                        <div class="detail-row" onclick="copyToClipboard('Matugama', this)">
+                            <i class="fa-solid fa-location-dot"></i> Branch: <span>Matugama</span> <i class="fa-regular fa-copy small-copy-icon"></i>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 4. LOLC Finance -->
                 <div class="bank-item">
                     <div class="bank-top">
-                        <img src="https://i.postimg.cc/yYXBhWNb/1001098751.png" alt="LOLC" class="bank-logo">
+                        <img src="https://i.postimg.cc/kgTJk0sG/1001100484.jpg" alt="LOLC" class="bank-logo">
                         <span class="bank-name-title">LOLC Finance</span>
                     </div>
                     <div class="acc-details-box">
@@ -670,8 +788,12 @@
                         <button class="btn-copy-bank" onclick="copyToClipboard('10310007330', this)"><i class="fa-regular fa-copy"></i></button>
                     </div>
                     <div class="bank-extra-details">
-                        <div class="detail-row"><i class="fa-regular fa-user"></i> Name: <span>Rathana BS</span></div>
-                        <div class="detail-row"><i class="fa-solid fa-location-dot"></i> Branch: <span>Baduraliya</span></div>
+                        <div class="detail-row" onclick="copyToClipboard('Rathana BS', this)">
+                            <i class="fa-regular fa-user"></i> Name: <span>Rathana BS</span> <i class="fa-regular fa-copy small-copy-icon"></i>
+                        </div>
+                        <div class="detail-row" onclick="copyToClipboard('Baduraliya', this)">
+                            <i class="fa-solid fa-location-dot"></i> Branch: <span>Baduraliya</span> <i class="fa-regular fa-copy small-copy-icon"></i>
+                        </div>
                     </div>
                 </div>
 
@@ -683,10 +805,31 @@
     <div id="toast">Copied to Clipboard!</div>
 
     <script>
+        // ============================
+        // INTRO LOGIC
+        // ============================
+        window.addEventListener('load', () => {
+            const introOverlay = document.getElementById('intro-overlay');
+            
+            // Wait for 2.5 seconds (animation duration) then fade out
+            setTimeout(() => {
+                introOverlay.classList.add('intro-hidden');
+            }, 2500);
+        });
+
         // Universal Copy Function
         function copyToClipboard(text, element) {
             let icon;
-            if(element.classList.contains('copy-icon')) {
+            
+            // Handle clicks on the div (detail-row)
+            if(element.classList.contains('detail-row')) {
+                icon = element.querySelector('.small-copy-icon');
+            } 
+            // Handle button click (btn-copy-bank)
+            else if(element.classList.contains('btn-copy-bank')) {
+                icon = element.querySelector('i');
+            }
+            else if(element.classList.contains('copy-icon')) {
                 icon = element;
             } else if (element.querySelector('.copy-icon')) {
                 icon = element.querySelector('.copy-icon');
@@ -723,15 +866,23 @@
         }
 
         function showToastAndIcon(icon, text) {
+            if(!icon) return; 
+
             const originalClass = icon.className;
             
-            icon.className = "fa-solid fa-check";
+            if(icon.classList.contains('small-copy-icon')) {
+                icon.className = "fa-solid fa-check small-copy-icon";
+            } else {
+                icon.className = "fa-solid fa-check";
+            }
+            
             icon.style.color = "#25d366";
+            icon.style.opacity = "1";
 
             const toast = document.getElementById("toast");
             
-            if(text.length > 10) {
-                toast.textContent = "Account Number Copied!";
+            if(text.length > 15) {
+                toast.textContent = "Copied to Clipboard!";
             } else {
                 toast.textContent = '"' + text + '" Copied!';
             }
@@ -742,6 +893,7 @@
                 toast.className = toast.className.replace("show", ""); 
                 icon.className = originalClass;
                 icon.style.color = "";
+                icon.style.opacity = "";
             }, 2000);
         }
 
